@@ -3,11 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sparrooow.site/categories/</loc>
+    <loc>https://sparrooow.site/rust/</loc>
+    <lastmod>2021-05-08T14:46:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://sparrooow.site/</loc>
+    <lastmod>2021-05-08T14:46:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/rust/study-note-1/</loc>
+    <lastmod>2021-05-08T14:46:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/post/</loc>
+    <lastmod>2021-05-08T14:25:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/post/rust-1/</loc>
+    <lastmod>2021-05-08T14:25:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/post/first/</loc>
+    <lastmod>2021-05-08T14:10:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/about/</loc>
+    <lastmod>2021-05-07T23:21:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sparrooow.site/categories/</loc>
   </url>
   
   <url>

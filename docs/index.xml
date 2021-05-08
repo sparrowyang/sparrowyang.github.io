@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>SPARROOOW</title>
     <link>https://sparrooow.site/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on SPARROOOW</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://sparrooow.site/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 08 May 2021 14:46:06 +0800</lastBuildDate><atom:link href="https://sparrooow.site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Study Note 1</title>
+      <link>https://sparrooow.site/rust/study-note-1/</link>
+      <pubDate>Sat, 08 May 2021 14:46:06 +0800</pubDate>
+      
+      <guid>https://sparrooow.site/rust/study-note-1/</guid>
+      <description>rust study note 1 对 rust中的string 类型和&amp;amp;str类型，有时间好好研究一下
+// quiz2.rs // This is a quiz for the following sections: // - Strings  // Ok, here are a bunch of values-- some are `String`s, some are `&amp;amp;str`s. Your // task is to call one of these two functions on each value depending on what // you think each value is. That is, add either `string_slice` or `string` // before the parentheses on each line.</description>
+    </item>
+    
+    <item>
+      <title>Rust 1</title>
+      <link>https://sparrooow.site/post/rust-1/</link>
+      <pubDate>Sat, 08 May 2021 14:25:07 +0800</pubDate>
+      
+      <guid>https://sparrooow.site/post/rust-1/</guid>
+      <description>rust study note 1 对 rust中的string 类型和&amp;amp;str类型，有时间好好研究一下
+// quiz2.rs // This is a quiz for the following sections: // - Strings  // Ok, here are a bunch of values-- some are `String`s, some are `&amp;amp;str`s. Your // task is to call one of these two functions on each value depending on what // you think each value is. That is, add either `string_slice` or `string` // before the parentheses on each line.</description>
+    </item>
+    
+    <item>
+      <title>First</title>
+      <link>https://sparrooow.site/post/first/</link>
+      <pubDate>Sat, 08 May 2021 14:10:33 +0800</pubDate>
+      
+      <guid>https://sparrooow.site/post/first/</guid>
+      <description>为什么我的文章不显示？</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://sparrooow.site/about/</link>
+      <pubDate>Fri, 07 May 2021 23:21:52 +0800</pubDate>
+      
+      <guid>https://sparrooow.site/about/</guid>
+      <description>+++
+正文内容</description>
+    </item>
+    
   </channel>
 </rss>

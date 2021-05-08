@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<title>Rust 1 | SPARROOOW</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.80.0" />
+<meta name="description" content="my blog">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://sparrooow.sitecss/index.css">
+<link rel="canonical" href="https://sparrooow.site/post/rust-1/">
+<link rel="alternate" type="application/rss+xml" href="" title="SPARROOOW">
+
+<header>
+  
+    <a href="https://sparrooow.site" class="title">SPARROOOW</a>
+  
+  
+    <nav>
+    
+      <a href="/about/">About</a>
+    
+    </nav>
+  
+</header>
+
+<article>
+  <header>
+    <h1>Rust 1</h1>
+    <time datetime="2021-05-08T14:25:07&#43;08:00">May 08, 2021</time>
+  </header>
+  <h1 id="rust-study-note-1">rust study note 1</h1>
+<p>对 rust中的string 类型和&amp;str类型，有时间好好研究一下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// quiz2.rs
+</span><span style="color:#75715e">// This is a quiz for the following sections:
+</span><span style="color:#75715e">// - Strings
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Ok, here are a bunch of values-- some are `String`s, some are `&amp;str`s. Your
+</span><span style="color:#75715e">// task is to call one of these two functions on each value depending on what
+</span><span style="color:#75715e">// you think each value is. That is, add either `string_slice` or `string`
+</span><span style="color:#75715e">// before the parentheses on each line. If you&#39;re right, it will compile!
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">string_slice</span>(arg: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) {
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, arg);
+}
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">string</span>(arg: String) {
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, arg);
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    string_slice(<span style="color:#e6db74">&#34;blue&#34;</span>);
+    string(<span style="color:#e6db74">&#34;red&#34;</span>.to_string());
+    string(String::from(<span style="color:#e6db74">&#34;hi&#34;</span>));
+    string(<span style="color:#e6db74">&#34;rust is fun!&#34;</span>.to_owned());
+    string_slice(<span style="color:#e6db74">&#34;nice weather&#34;</span>.into());
+    string(format<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Interpolation {}&#34;</span>, <span style="color:#e6db74">&#34;Station&#34;</span>));
+    string_slice(<span style="color:#f92672">&amp;</span>String::from(<span style="color:#e6db74">&#34;abc&#34;</span>)[<span style="color:#ae81ff">0</span>..<span style="color:#ae81ff">1</span>]);
+    string_slice(<span style="color:#e6db74">&#34;  hello there &#34;</span>.trim());
+    string(<span style="color:#e6db74">&#34;Happy Monday!&#34;</span>.to_string().replace(<span style="color:#e6db74">&#34;Mon&#34;</span>, <span style="color:#e6db74">&#34;Tues&#34;</span>));
+    string(<span style="color:#e6db74">&#34;mY sHiFt KeY iS sTiCkY&#34;</span>.to_lowercase());
+}
+
+</code></pre></div>
+</article>
+
+
+
+</html>
