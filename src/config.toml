@@ -1,0 +1,5 @@
+baseURL = "https://sparrooow.site/"
+languageCode = "zh-cn"
+title = "SPYBS"
+theme = "hugo-tania"
+
