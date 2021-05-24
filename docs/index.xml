@@ -1,50 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://sparrooow.site/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SPARROOOW</title>
+    <title>Sparrooow log</title>
     <link>https://sparrooow.site/</link>
-    <description>Recent content on SPARROOOW</description>
+    <description>Recent content on Sparrooow log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 08 May 2021 14:46:06 +0800</lastBuildDate><atom:link href="https://sparrooow.site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 May 2021 23:12:10 +0800</lastBuildDate>
+    <atom:link href="https://sparrooow.site/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Study Note 1</title>
-      <link>https://sparrooow.site/rust/study-note-1/</link>
-      <pubDate>Sat, 08 May 2021 14:46:06 +0800</pubDate>
-      
-      <guid>https://sparrooow.site/rust/study-note-1/</guid>
-      <description>rust study note 1 对 rust中的string 类型和&amp;amp;str类型，有时间好好研究一下
-// quiz2.rs // This is a quiz for the following sections: // - Strings  // Ok, here are a bunch of values-- some are `String`s, some are `&amp;amp;str`s. Your // task is to call one of these two functions on each value depending on what // you think each value is. That is, add either `string_slice` or `string` // before the parentheses on each line.</description>
+      <title>c语言动态库</title>
+      <link>https://sparrooow.site/post/1/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://sparrooow.site/post/1/</guid>
+      <description>&lt;h1 id=&#34;动态库的构建&#34;&gt;动态库的构建&lt;/h1&gt;
+&lt;h2 id=&#34;编写库&#34;&gt;编写库&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fun.h&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt;();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;fun.c&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;fun.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;argv[])
+{
+    info();
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译&#34;&gt;编译&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcc -fPIC -shared fun.c -o libfun123.so
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;main.c&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;fun.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;argv[])
+{
+    info();
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcc main.c libfun123.so -o app.out
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时检查编译的可执行文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➞  ldd app.out
+        linux-vdso.so.1 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fffdbbee000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+        libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; not found
+        libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /lib/x86_64-linux-gnu/libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007f2f3e5a9000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+        /lib64/ld-linux-x86-64.so.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007f2f3e7cf000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;发现找不到动态库，我们将库需要加入到库目录中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export LD_LIBRARY_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;LD_LIBRARY_PATH&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;:/mnt/d/workspace/codeblock/temp/share
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时找到了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➞  ldd app.out
+        linux-vdso.so.1 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007ffcfcf96000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+        libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /mnt/d/workspace/codeblock/temp/share/libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8cb7000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+        libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /lib/x86_64-linux-gnu/libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8a98000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+        /lib64/ld-linux-x86-64.so.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8cc3000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;➞  ./app.out
+you know me!% 
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
-    <item>
-      <title>Rust 1</title>
-      <link>https://sparrooow.site/post/rust-1/</link>
-      <pubDate>Sat, 08 May 2021 14:25:07 +0800</pubDate>
-      
-      <guid>https://sparrooow.site/post/rust-1/</guid>
-      <description>rust study note 1 对 rust中的string 类型和&amp;amp;str类型，有时间好好研究一下
-// quiz2.rs // This is a quiz for the following sections: // - Strings  // Ok, here are a bunch of values-- some are `String`s, some are `&amp;amp;str`s. Your // task is to call one of these two functions on each value depending on what // you think each value is. That is, add either `string_slice` or `string` // before the parentheses on each line.</description>
-    </item>
-    
-    <item>
-      <title>First</title>
-      <link>https://sparrooow.site/post/first/</link>
-      <pubDate>Sat, 08 May 2021 14:10:33 +0800</pubDate>
-      
-      <guid>https://sparrooow.site/post/first/</guid>
-      <description>为什么我的文章不显示？</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://sparrooow.site/about/</link>
-      <pubDate>Fri, 07 May 2021 23:21:52 +0800</pubDate>
-      
-      <guid>https://sparrooow.site/about/</guid>
-      <description>+++
-正文内容</description>
-    </item>
-    
   </channel>
 </rss>

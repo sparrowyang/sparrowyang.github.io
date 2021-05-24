@@ -1,5 +1,5 @@
 baseURL = "https://sparrooow.site/"
 languageCode = "zh-cn"
-title = "SPYBS"
-theme = "hugo-tania"
-
+title = "Sparrooow log"
+# theme = "hugo-tania"
+theme = "hugo-flex"

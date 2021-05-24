@@ -8,7 +8,13 @@
 
 
   
-    
+    <meta name="description" content="动态库的构建 编写库 fun.h:
+void info(); fun.c:
+#include &#34;fun.h&#34; int main(int argc, char const *argv[]) { info(); return 0; } 编译 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c:
+#include &#34;fun.h&#34;int main(int argc, char const *argv[]) { info(); return 0; } gcc main.c libfun123.so -o app.out 此时检查编译的可执行文件：
+➞ ldd app.out linux-vdso.so.1 (0x00007fffdbbee000) libfun123.so =&gt; not found libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f2f3e5a9000) /lib64/ld-linux-x86-64.so.2 (0x00007f2f3e7cf000) 发现找不到动态库，我们将库需要加入到库目录中。
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/mnt/d/workspace/codeblock/temp/share 此时找到了
+➞ ldd app.out linux-vdso.so.1 (0x00007ffcfcf96000) libfun123.">
   
 
 
@@ -19,38 +25,22 @@
 
 
 <meta name="generator" content="Hugo 0.68.3" />
-  <title>Sparrooow log</title>
-  <link rel="canonical" href="/">
-
-
-  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Sparrooow log">
-
-  
-
-
-
-
-
-
+  <title>c语言动态库 | Sparrooow log</title>
+  <link rel="canonical" href="/post/1/">
 
 
   
 
-  
 
-  
+
+
+
+
+
 
   
     
-    
-    
-    
-    
   
-
-  
-
-
   
   <link rel="stylesheet" href="/css/base.min.23cd48cee155498cf8a6f89152dd9fda2bd56047a4845068f7927636fd0c454f.css" integrity="sha256-I81IzuFVSYz4pviRUt2f2ivVYEekhFBo95J2Nv0MRU8=" crossorigin="anonymous">
 
@@ -94,11 +84,8 @@
       <div class="u-padding">
         
 
-  
-
-  
-    <article>
-      <header class="Heading">
+  <article>
+    <header class="Heading">
   <h2 class="Heading-title">
     <a class="Heading-link u-clickable" href="/post/1/" rel="bookmark">c语言动态库</a>
   </h2>
@@ -106,8 +93,7 @@
     <time datetime="2021-05-22T00:00:00Z">22 May, 2021</time>
   
 </header>
-      
-        <h1 id="动态库的构建">动态库的构建</h1>
+    <h1 id="动态库的构建">动态库的构建</h1>
 <h2 id="编写库">编写库</h2>
 <p><code>fun.h</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">info</span>();
@@ -149,27 +135,21 @@
 <pre><code>➞  ./app.out
 you know me!% 
 </code></pre>
-      
-      
-
-
-  
-
-  
-
-
-
-
-
-    </article>
     
-      <div class="Divider"></div>
+
+
+  
+
+  
+
+
+
+
+
     
   
 
-  
-
-
+  </article>
 
 
       </div>
