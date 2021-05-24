@@ -112,13 +112,12 @@
 <p><code>fun.h</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">info</span>();
 </code></pre></div><p><code>fun.c</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;fun.h&#34;</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;fun.h&#34;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#66d9ef">const</span> <span style="color:#f92672">*</span>argv[])
-{
-    info();
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">info</span>(){
+    printf(<span style="color:#e6db74">&#34;you know me!&#34;</span>);
+}<span style="color:#f92672">%</span>
 </code></pre></div><h2 id="编译">编译</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -fPIC -shared fun.c -o libfun123.so
 </code></pre></div><h2 id="使用">使用</h2>
