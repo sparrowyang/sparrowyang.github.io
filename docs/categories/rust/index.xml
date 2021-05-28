@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="https://sparrooow.site/xml/base.min.xml" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sparrooow log</title>
-    <link>https://sparrooow.site/</link>
-    <description>Recent content on Sparrooow log</description>
+    <title>rust on Sparrooow log</title>
+    <link>https://sparrooow.site/categories/rust/</link>
+    <description>Recent content in rust on Sparrooow log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 May 2021 23:12:10 +0800</lastBuildDate>
-    <atom:link href="https://sparrooow.site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sparrooow.site/categories/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust中的枚举类</title>
       <link>https://sparrooow.site/post/rust-2/</link>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="这关试了很久，终于过了。
+枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Message里，所以Move是一个匿名结构体。 Echo和ChangeColor是元组，元组的定义只要加元素类型即可。 Quit是一个普通枚举元素。
+可参考文档Enum
+// enums2.rs // Make me compile! Execute `rustlings hint enums2` for hints!  #[derive(Debug)] enum Message { // TODO: define the different variants used below  Move{ x:i32, y:i32 }, Echo(String), ChangeColor( i32, i32, i32 ), Quit } impl Message { fn call(&amp;self) { println!(&#34;{:?}&#34;, &amp;self); } } fn main() { let messages = [ Message::Move{ x: 10, y: 30 }, Message::Echo(String::from(&#34;hello world&#34;)), Message::ChangeColor(200, 255, 255), Message::Quit ]; for message in &amp;messages { message.">
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3" />
+  <title>Rust中的枚举类 | Sparrooow log</title>
+  <link rel="canonical" href="/post/rust-2/">
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/base.min.23cd48cee155498cf8a6f89152dd9fda2bd56047a4845068f7927636fd0c454f.css" integrity="sha256-I81IzuFVSYz4pviRUt2f2ivVYEekhFBo95J2Nv0MRU8=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">Sparrooow log</a>
+      </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/about/">About</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/post/">Posts</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/tags/">Tags</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/categories/">Categories</a>
+        </li>
+      
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <article>
+    <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/post/rust-2/" rel="bookmark">Rust中的枚举类</a>
+  </h2>
+  
+    <time datetime="2021-05-28T00:00:00Z">28 May, 2021</time>
+  
+</header>
+    <p>这关试了很久，终于过了。</p>
+<p><strong>枚举</strong>中嵌套了<strong>结构体</strong>和<strong>元组</strong>。
+由<code>Message::Move{ x: 10, y: 30 }</code>可知，<code>Move</code>是一个结构体，Move定义在<code>Message</code>里，所以<code>Move</code>是一个匿名结构体。
+<code>Echo</code>和<code>ChangeColor</code>是元组，元组的定义只要加元素类型即可。
+<code>Quit</code>是一个普通枚举元素。</p>
+<p>可参考文档<a href="https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html">Enum</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// enums2.rs
+</span><span style="color:#75715e">// Make me compile! Execute `rustlings hint enums2` for hints!
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#[derive(Debug)]</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Message</span> {
+    <span style="color:#75715e">// TODO: define the different variants used below
+</span><span style="color:#75715e"></span>    Move{
+        x:<span style="color:#66d9ef">i32</span>,
+        y:<span style="color:#66d9ef">i32</span>
+    },
+    Echo(String),
+    ChangeColor(
+        <span style="color:#66d9ef">i32</span>,
+        <span style="color:#66d9ef">i32</span>,
+        <span style="color:#66d9ef">i32</span>
+    ),
+    Quit
+}
+<span style="color:#66d9ef">impl</span> Message {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self) {
+        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?}&#34;</span>, <span style="color:#f92672">&amp;</span>self);
+    }
+}
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> messages <span style="color:#f92672">=</span> [
+        Message::Move{ x: <span style="color:#ae81ff">10</span>, y: <span style="color:#ae81ff">30</span> },
+        Message::Echo(String::from(<span style="color:#e6db74">&#34;hello world&#34;</span>)),
+        Message::ChangeColor(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>),
+        Message::Quit
+    ];
+    <span style="color:#66d9ef">for</span> message <span style="color:#66d9ef">in</span> <span style="color:#f92672">&amp;</span>messages {
+        message.call();
+    }
+}
+
+</code></pre></div>
+    
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/categories/rust/" rel="tag">rust</a>
+            </li>
+          
+        </ul>
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/enum/" rel="tag">enum</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/rust/" rel="tag">rust</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    
+  
+
+  </article>
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        Except where otherwise noted, content on this site is licensed under a &#32; <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

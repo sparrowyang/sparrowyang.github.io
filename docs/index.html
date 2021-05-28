@@ -44,6 +44,27 @@
     
     
     
+      
+      
+    
+    
+    
+  
+    
+    
+    
+      
+      
+    
+    
+    
+  
+    
+    
+    
+      
+      
+    
     
     
   
@@ -100,6 +121,103 @@
     <article>
       <header class="Heading">
   <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/post/rust-2/" rel="bookmark">Rust中的枚举类</a>
+  </h2>
+  
+    <time datetime="2021-05-28T00:00:00Z">28 May, 2021</time>
+  
+</header>
+      
+        <p>这关试了很久，终于过了。</p>
+<p><strong>枚举</strong>中嵌套了<strong>结构体</strong>和<strong>元组</strong>。
+由<code>Message::Move{ x: 10, y: 30 }</code>可知，<code>Move</code>是一个结构体，Move定义在<code>Message</code>里，所以<code>Move</code>是一个匿名结构体。
+<code>Echo</code>和<code>ChangeColor</code>是元组，元组的定义只要加元素类型即可。
+<code>Quit</code>是一个普通枚举元素。</p>
+<p>可参考文档<a href="https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html">Enum</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// enums2.rs
+</span><span style="color:#75715e">// Make me compile! Execute `rustlings hint enums2` for hints!
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#[derive(Debug)]</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Message</span> {
+    <span style="color:#75715e">// TODO: define the different variants used below
+</span><span style="color:#75715e"></span>    Move{
+        x:<span style="color:#66d9ef">i32</span>,
+        y:<span style="color:#66d9ef">i32</span>
+    },
+    Echo(String),
+    ChangeColor(
+        <span style="color:#66d9ef">i32</span>,
+        <span style="color:#66d9ef">i32</span>,
+        <span style="color:#66d9ef">i32</span>
+    ),
+    Quit
+}
+<span style="color:#66d9ef">impl</span> Message {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self) {
+        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?}&#34;</span>, <span style="color:#f92672">&amp;</span>self);
+    }
+}
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">let</span> messages <span style="color:#f92672">=</span> [
+        Message::Move{ x: <span style="color:#ae81ff">10</span>, y: <span style="color:#ae81ff">30</span> },
+        Message::Echo(String::from(<span style="color:#e6db74">&#34;hello world&#34;</span>)),
+        Message::ChangeColor(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>),
+        Message::Quit
+    ];
+    <span style="color:#66d9ef">for</span> message <span style="color:#66d9ef">in</span> <span style="color:#f92672">&amp;</span>messages {
+        message.call();
+    }
+}
+
+</code></pre></div>
+      
+      
+
+
+  
+
+  
+
+
+
+
+
+  <footer>
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/categories/rust/" rel="tag">rust</a>
+            </li>
+          
+        </ul>
+      
+    
+      
+        <ul class="Tags">
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/enum/" rel="tag">enum</a>
+            </li>
+          
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="/tags/rust/" rel="tag">rust</a>
+            </li>
+          
+        </ul>
+      
+    
+  </footer>
+
+    </article>
+    
+      <div class="Divider"></div>
+    
+  
+    <article>
+      <header class="Heading">
+  <h2 class="Heading-title">
     <a class="Heading-link u-clickable" href="/post/1/" rel="bookmark">c语言动态库</a>
   </h2>
   
@@ -117,7 +235,7 @@
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">info</span>(){
     printf(<span style="color:#e6db74">&#34;you know me!&#34;</span>);
-}<span style="color:#f92672">%</span>
+}
 </code></pre></div><h2 id="编译">编译</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -fPIC -shared fun.c -o libfun123.so
 </code></pre></div><h2 id="使用">使用</h2>
@@ -148,6 +266,84 @@
 <pre><code>➞  ./app.out
 you know me!% 
 </code></pre>
+      
+      
+
+
+  
+
+  
+
+
+
+
+
+    </article>
+    
+      <div class="Divider"></div>
+    
+  
+    <article>
+      <header class="Heading">
+  <h2 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/post/linux-grub/" rel="bookmark">Deepin 修改引导界面</a>
+  </h2>
+  
+    <time datetime="2020-06-15T00:00:00Z">15 June, 2020</time>
+  
+</header>
+      
+        <blockquote>
+<p>自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。</p>
+<p>问题是，每次开机都要和引导拼手速，手动选择进入windows，否则就自动进入deepin了。于是通过修改grub配置，使默认进入winows。</p>
+</blockquote>
+<h2 id="启动列表">启动列表</h2>
+<p>在启动项选择中，一共有四个启动项：</p>
+<ol>
+<li>deepin 15</li>
+<li>deepin 高级设置</li>
+<li>windows 10</li>
+<li>Systemsetup</li>
+</ol>
+<p>默认是选中第一个的，开机时不按上下键选择的话会默认进入deepin。</p>
+<h2 id="修改启动项">修改启动项</h2>
+<p>配置文件在<code>/etc/default/grub</code></p>
+<p>默认情况下的配置是这样的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
+<span style="color:#75715e"># Written by com.deepin.daemon.Grub2</span>
+DEEPIN_GFXMODE_ADJUSTED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;splash quiet&#34;</span>
+GRUB_DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+GRUB_DISTRIBUTOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+GRUB_GFXMODE<span style="color:#f92672">=</span>1920x1080
+GRUB_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+GRUB_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+
+</code></pre></div><p><code>GRUB_DEFAULT=0</code>默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。</p>
+<p>修改完保存是还没有效果的，因为没更新，执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></div><p>更新一下，即可。</p>
+<h2 id="一些坑">一些坑</h2>
+<p>当初装deepin时可能为了解决开机logo 卡死问题，会在<code>/etc/default/grub</code>文件添加<code>acpi_osi=! acpi=&quot;windwos 2009&quot;</code>。我执行完</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></div><p>后会又出现logo卡死问题。因为添加的东西会被更新后没了。</p>
+<p>解决办法是修改<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash quiet acpi_osi=! acpi=\&quot;windwos 2009\&quot;&quot;</code>，改成这样：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
+<span style="color:#75715e"># Written by com.deepin.daemon.Grub2</span>
+DEEPIN_GFXMODE_ADJUSTED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
+GRUB_DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+GRUB_DISTRIBUTOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+GRUB_GFXMODE<span style="color:#f92672">=</span>1920x1080
+GRUB_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+GRUB_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+
+</code></pre></div><p>然后再</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></div><p>就没问题了</p>
+
       
       
 
