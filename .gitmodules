@@ -4,3 +4,6 @@
 [submodule "src/themes/hugo-flex"]
 	path = src/themes/hugo-flex
 	url = https://github.com/de-souza/hugo-flex.git
+[submodule "src/themes/even"]
+	path = src/themes/even
+	url = https://github.com/olOwOlo/hugo-theme-even.git

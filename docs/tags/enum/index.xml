@@ -1,165 +1,24 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<?xml-stylesheet type="text/xsl" href="https://sparrooow.site/xml/base.min.xml" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>enum on Sparrooow log</title>
-    <link>https://sparrooow.site/tags/enum/</link>
-    <description>Recent content in enum on Sparrooow log</description>
+    <title>enum on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/enum/</link>
+    <description>Recent content in enum on Sparrowyang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>cn</language>
     <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://sparrooow.site/tags/enum/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://sparrooow.site/tags/enum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Rust中的枚举类</title>
-      <link>https://sparrooow.site/post/rust-2/</link>
+      <link>http://sparrooow.site/post/rust-2/</link>
       <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://sparrooow.site/post/rust-2/</guid>
-      <description>&lt;p&gt;这关试了很久，终于过了。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;枚举&lt;/strong&gt;中嵌套了&lt;strong&gt;结构体&lt;/strong&gt;和&lt;strong&gt;元组&lt;/strong&gt;。
-由&lt;code&gt;Message::Move{ x: 10, y: 30 }&lt;/code&gt;可知，&lt;code&gt;Move&lt;/code&gt;是一个结构体，Move定义在&lt;code&gt;Message&lt;/code&gt;里，所以&lt;code&gt;Move&lt;/code&gt;是一个匿名结构体。
-&lt;code&gt;Echo&lt;/code&gt;和&lt;code&gt;ChangeColor&lt;/code&gt;是元组，元组的定义只要加元素类型即可。
-&lt;code&gt;Quit&lt;/code&gt;是一个普通枚举元素。&lt;/p&gt;
-&lt;p&gt;可参考文档&lt;a href=&#34;https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html&#34;&gt;Enum&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// enums2.rs
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Make me compile! Execute `rustlings hint enums2` for hints!
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#[derive(Debug)]&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;enum&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Message&lt;/span&gt; {
-    &lt;span style=&#34;color:#75715e&#34;&gt;// TODO: define the different variants used below
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    Move{
-        x:&lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;,
-        y:&lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;
-    },
-    Echo(String),
-    ChangeColor(
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;,
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;,
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;i32&lt;/span&gt;
-    ),
-    Quit
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;impl&lt;/span&gt; Message {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;call&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;self) {
-        println&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{:?}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;self);
-    }
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; messages &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
-        Message::Move{ x: &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;, y: &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; },
-        Message::Echo(String::from(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hello world&amp;#34;&lt;/span&gt;)),
-        Message::ChangeColor(&lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;),
-        Message::Quit
-    ];
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; message &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;messages {
-        message.call();
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      
+      <guid>http://sparrooow.site/post/rust-2/</guid>
+      <description>这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess</description>
     </item>
-    <item>
-      <title>c语言动态库</title>
-      <link>https://sparrooow.site/post/1/</link>
-      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://sparrooow.site/post/1/</guid>
-      <description>&lt;h1 id=&#34;动态库的构建&#34;&gt;动态库的构建&lt;/h1&gt;
-&lt;h2 id=&#34;编写库&#34;&gt;编写库&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;fun.h&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt;();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;fun.c&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;fun.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt;(){
-    printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;you know me!&amp;#34;&lt;/span&gt;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译&#34;&gt;编译&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcc -fPIC -shared fun.c -o libfun123.so
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;main.c&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;fun.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;argv[])
-{
-    info();
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcc main.c libfun123.so -o app.out
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时检查编译的可执行文件：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➞  ldd app.out
-        linux-vdso.so.1 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fffdbbee000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-        libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; not found
-        libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /lib/x86_64-linux-gnu/libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007f2f3e5a9000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-        /lib64/ld-linux-x86-64.so.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007f2f3e7cf000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;发现找不到动态库，我们将库需要加入到库目录中。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export LD_LIBRARY_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;LD_LIBRARY_PATH&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;:/mnt/d/workspace/codeblock/temp/share
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时找到了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➞  ldd app.out
-        linux-vdso.so.1 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007ffcfcf96000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-        libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /mnt/d/workspace/codeblock/temp/share/libfun123.so &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8cb7000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-        libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; /lib/x86_64-linux-gnu/libc.so.6 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8a98000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-        /lib64/ld-linux-x86-64.so.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x00007fcdd8cc3000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;➞  ./app.out
-you know me!% 
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    <item>
-      <title>Deepin 修改引导界面</title>
-      <link>https://sparrooow.site/post/linux-grub/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://sparrooow.site/post/linux-grub/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。&lt;/p&gt;
-&lt;p&gt;问题是，每次开机都要和引导拼手速，手动选择进入windows，否则就自动进入deepin了。于是通过修改grub配置，使默认进入winows。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;启动列表&#34;&gt;启动列表&lt;/h2&gt;
-&lt;p&gt;在启动项选择中，一共有四个启动项：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;deepin 15&lt;/li&gt;
-&lt;li&gt;deepin 高级设置&lt;/li&gt;
-&lt;li&gt;windows 10&lt;/li&gt;
-&lt;li&gt;Systemsetup&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;默认是选中第一个的，开机时不按上下键选择的话会默认进入deepin。&lt;/p&gt;
-&lt;h2 id=&#34;修改启动项&#34;&gt;修改启动项&lt;/h2&gt;
-&lt;p&gt;配置文件在&lt;code&gt;/etc/default/grub&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;默认情况下的配置是这样的&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sparrow@sparrow-PC:~$ cat /etc/default/grub
-&lt;span style=&#34;color:#75715e&#34;&gt;# Written by com.deepin.daemon.Grub2&lt;/span&gt;
-DEEPIN_GFXMODE_ADJUSTED&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-GRUB_CMDLINE_LINUX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-GRUB_CMDLINE_LINUX_DEFAULT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;splash quiet&amp;#34;&lt;/span&gt;
-GRUB_DEFAULT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-GRUB_DISTRIBUTOR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;`/usr/bin/lsb_release -d -s 2&amp;gt;/dev/null || echo Deepin`&amp;#34;&lt;/span&gt;
-GRUB_GFXMODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1920x1080
-GRUB_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/boot/grub/themes/deepin/theme.txt&amp;#34;&lt;/span&gt;
-GRUB_TIMEOUT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;GRUB_DEFAULT=0&lt;/code&gt;默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。&lt;/p&gt;
-&lt;p&gt;修改完保存是还没有效果的，因为没更新，执行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo update-grub
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新一下，即可。&lt;/p&gt;
-&lt;h2 id=&#34;一些坑&#34;&gt;一些坑&lt;/h2&gt;
-&lt;p&gt;当初装deepin时可能为了解决开机logo 卡死问题，会在&lt;code&gt;/etc/default/grub&lt;/code&gt;文件添加&lt;code&gt;acpi_osi=! acpi=&amp;quot;windwos 2009&amp;quot;&lt;/code&gt;。我执行完&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo update-grub
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后会又出现logo卡死问题。因为添加的东西会被更新后没了。&lt;/p&gt;
-&lt;p&gt;解决办法是修改&lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;splash quiet acpi_osi=! acpi=\&amp;quot;windwos 2009\&amp;quot;&amp;quot;&lt;/code&gt;，改成这样：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sparrow@sparrow-PC:~$ cat /etc/default/grub
-&lt;span style=&#34;color:#75715e&#34;&gt;# Written by com.deepin.daemon.Grub2&lt;/span&gt;
-DEEPIN_GFXMODE_ADJUSTED&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-GRUB_CMDLINE_LINUX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-GRUB_CMDLINE_LINUX_DEFAULT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;splash quiet acpi_osi=! acpi=\&amp;#34;windwos 2009\&amp;#34;&amp;#34;&lt;/span&gt;
-GRUB_DEFAULT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-GRUB_DISTRIBUTOR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;`/usr/bin/lsb_release -d -s 2&amp;gt;/dev/null || echo Deepin`&amp;#34;&lt;/span&gt;
-GRUB_GFXMODE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1920x1080
-GRUB_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/boot/grub/themes/deepin/theme.txt&amp;#34;&lt;/span&gt;
-GRUB_TIMEOUT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后再&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo update-grub
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;就没问题了&lt;/p&gt;
-</description>
-    </item>
+    
   </channel>
 </rss>

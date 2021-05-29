@@ -1,105 +1,160 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-
+<html lang="cn">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Deepin 修改引导界面 - Sparrowyang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-  
-    <meta name="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。
-问题是，每次开机都要和引导拼手速，手动选择进入windows，否则就自动进入deepin了。于是通过修改grub配置，使默认进入winows。
- 启动列表 在启动项选择中，一共有四个启动项：
- deepin 15 deepin 高级设置 windows 10 Systemsetup  默认是选中第一个的，开机时不按上下键选择的话会默认进入deepin。
-修改启动项 配置文件在/etc/default/grub
-默认情况下的配置是这样的
-sparrow@sparrow-PC:~$ cat /etc/default/grub # Written by com.deepin.daemon.Grub2 DEEPIN_GFXMODE_ADJUSTED=1 GRUB_CMDLINE_LINUX=&#34;&#34; GRUB_CMDLINE_LINUX_DEFAULT=&#34;splash quiet&#34; GRUB_DEFAULT=0 GRUB_DISTRIBUTOR=&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34; GRUB_GFXMODE=1920x1080 GRUB_THEME=&#34;/boot/grub/themes/deepin/theme.txt&#34; GRUB_TIMEOUT=5 GRUB_DEFAULT=0默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。
-修改完保存是还没有效果的，因为没更新，执行
-sudo update-grub 更新一下，即可。
-一些坑 当初装deepin时可能为了解决开机logo 卡死问题，会在/etc/default/grub文件添加acpi_osi=! acpi=&quot;windwos 2009&quot;。我执行完
-sudo update-grub 后会又出现logo卡死问题。因为添加的东西会被更新后没了。
-解决办法是修改GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash quiet acpi_osi=! acpi=\&quot;windwos 2009\&quot;&quot;，改成这样：
-sparrow@sparrow-PC:~$ cat /etc/default/grub # Written by com.deepin.daemon.Grub2 DEEPIN_GFXMODE_ADJUSTED=1 GRUB_CMDLINE_LINUX=&#34;&#34; GRUB_CMDLINE_LINUX_DEFAULT=&#34;splash quiet acpi_osi=!">
-  
+<meta name="author" content="sparrowyang" /><meta name="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
 
 
 
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<meta name="generator" content="Hugo 0.68.3" />
-  <title>Deepin 修改引导界面 | Sparrooow log</title>
-  <link rel="canonical" href="/post/linux-grub/">
-
-
-  
-
-
-
-
+<link rel="canonical" href="http://sparrooow.site/post/linux-grub/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
 
-
-  
-    
-  
-  
-  <link rel="stylesheet" href="/css/base.min.23cd48cee155498cf8a6f89152dd9fda2bd56047a4845068f7927636fd0c454f.css" integrity="sha256-I81IzuFVSYz4pviRUt2f2ivVYEekhFBo95J2Nv0MRU8=" crossorigin="anonymous">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
+<meta property="og:title" content="Deepin 修改引导界面" />
+<meta property="og:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sparrooow.site/post/linux-grub/" />
+<meta property="article:published_time" content="2020-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-15T00:00:00+00:00" />
+<meta itemprop="name" content="Deepin 修改引导界面">
+<meta itemprop="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼">
+<meta itemprop="datePublished" content="2020-06-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="573">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deepin 修改引导界面"/>
+<meta name="twitter:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
-
 <body>
-  <nav class="u-background">
-  <div class="u-wrapper">
-    <ul class="Banner">
-      <li class="Banner-item Banner-item--title">
-        <a class="Banner-link u-clickable" href="/">Sparrooow log</a>
-      </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/about/">About</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/post/">Posts</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/tags/">Tags</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/categories/">Categories</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
-        </li>
-      
-    </ul>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sparrooow</a>
   </div>
-</nav>
-  <main>
-    <div class="u-wrapper">
-      <div class="u-padding">
-        
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-  <article>
-    <header class="Heading">
-  <h2 class="Heading-title">
-    <a class="Heading-link u-clickable" href="/post/linux-grub/" rel="bookmark">Deepin 修改引导界面</a>
-  </h2>
   
-    <time datetime="2020-06-15T00:00:00Z">15 June, 2020</time>
-  
-</header>
-    <blockquote>
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sparrooow</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Deepin 修改引导界面</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#启动列表">启动列表</a></li>
+        <li><a href="#修改启动项">修改启动项</a></li>
+        <li><a href="#一些坑">一些坑</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
 <p>自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。</p>
 <p>问题是，每次开机都要和引导拼手速，手动选择进入windows，否则就自动进入deepin了。于是通过修改grub配置，使默认进入winows。</p>
 </blockquote>
@@ -115,70 +170,183 @@ sparrow@sparrow-PC:~$ cat /etc/default/grub # Written by com.deepin.daemon.Grub2
 <h2 id="修改启动项">修改启动项</h2>
 <p>配置文件在<code>/etc/default/grub</code></p>
 <p>默认情况下的配置是这样的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span style="color:#75715e"># Written by com.deepin.daemon.Grub2</span>
-DEEPIN_GFXMODE_ADJUSTED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;splash quiet&#34;</span>
-GRUB_DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-GRUB_DISTRIBUTOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-GRUB_GFXMODE<span style="color:#f92672">=</span>1920x1080
-GRUB_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-GRUB_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
+<span class="c1"># Written by com.deepin.daemon.Grub2</span>
+<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet&#34;</span>
+<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
+<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
 
-</code></pre></div><p><code>GRUB_DEFAULT=0</code>默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>GRUB_DEFAULT=0</code>默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。</p>
 <p>修改完保存是还没有效果的，因为没更新，执行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></div><p>更新一下，即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></td></tr></table>
+</div>
+</div><p>更新一下，即可。</p>
 <h2 id="一些坑">一些坑</h2>
 <p>当初装deepin时可能为了解决开机logo 卡死问题，会在<code>/etc/default/grub</code>文件添加<code>acpi_osi=! acpi=&quot;windwos 2009&quot;</code>。我执行完</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></div><p>后会又出现logo卡死问题。因为添加的东西会被更新后没了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></td></tr></table>
+</div>
+</div><p>后会又出现logo卡死问题。因为添加的东西会被更新后没了。</p>
 <p>解决办法是修改<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash quiet acpi_osi=! acpi=\&quot;windwos 2009\&quot;&quot;</code>，改成这样：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span style="color:#75715e"># Written by com.deepin.daemon.Grub2</span>
-DEEPIN_GFXMODE_ADJUSTED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
-GRUB_DEFAULT<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
-GRUB_DISTRIBUTOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-GRUB_GFXMODE<span style="color:#f92672">=</span>1920x1080
-GRUB_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-GRUB_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
+<span class="c1"># Written by com.deepin.daemon.Grub2</span>
+<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
+<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">2</span>
+<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
+<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
 
-</code></pre></div><p>然后再</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></div><p>就没问题了</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后再</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
+</code></pre></td></tr></table>
+</div>
+</div><p>就没问题了</p>
 
-    
+    </div>
 
-
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">sparrowyang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2020-06-15
+        
+    </span>
+  </p>
   
-
   
-
-
-
-
-
-    
-  
-
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/rust-1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Rust 1</span>
+            <span class="prev-text nav-mobile"></span>
+          </a>
+        
+      </nav>
+    </footer>
   </article>
+        </div>
+        
 
-
-      </div>
-    </div>
-  </main>
   
-  <footer class="Footer">
-    <div class="u-wrapper">
-      <div class="u-padding">
-        Except where otherwise noted, content on this site is licensed under a &#32; <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.
+
+  
+
       </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:sparrooow@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/sparrowyang" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/243950482" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://sparrooow.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+     - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
     </div>
-  </footer>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
 
 </body>
-
 </html>

@@ -1,60 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="http://sparrooow.site/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sparrooow.site/categories/</loc>
+    <loc>http://sparrooow.site/categories/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/tags/enum/</loc>
+    <loc>http://sparrooow.site/tags/enum/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/post/</loc>
+    <loc>http://sparrooow.site/post/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/tags/rust/</loc>
+    <loc>http://sparrooow.site/tags/rust/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/categories/rust/</loc>
+    <loc>http://sparrooow.site/categories/rust/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/post/rust-2/</loc>
+    <loc>http://sparrooow.site/post/rust-2/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/tags/</loc>
+    <loc>http://sparrooow.site/tags/</loc>
     <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/about/</loc>
+    <loc>http://sparrooow.site/about/</loc>
     <lastmod>2021-05-22T23:12:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/</loc>
+    <loc>http://sparrooow.site/</loc>
     <lastmod>2021-05-22T23:12:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/post/1/</loc>
+    <loc>http://sparrooow.site/post/1/</loc>
     <lastmod>2021-05-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sparrooow.site/post/linux-grub/</loc>
+    <loc>http://sparrooow.site/post/rust-1/</loc>
+    <lastmod>2021-05-08T14:25:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/post/linux-grub/</loc>
     <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

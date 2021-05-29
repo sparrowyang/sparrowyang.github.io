@@ -1,194 +1,324 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-
+<html lang="cn">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Rust中的枚举类 - Sparrowyang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-
-  
-    <meta name="description" content="这关试了很久，终于过了。
-枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Message里，所以Move是一个匿名结构体。 Echo和ChangeColor是元组，元组的定义只要加元素类型即可。 Quit是一个普通枚举元素。
-可参考文档Enum
-// enums2.rs // Make me compile! Execute `rustlings hint enums2` for hints!  #[derive(Debug)] enum Message { // TODO: define the different variants used below  Move{ x:i32, y:i32 }, Echo(String), ChangeColor( i32, i32, i32 ), Quit } impl Message { fn call(&amp;self) { println!(&#34;{:?}&#34;, &amp;self); } } fn main() { let messages = [ Message::Move{ x: 10, y: 30 }, Message::Echo(String::from(&#34;hello world&#34;)), Message::ChangeColor(200, 255, 255), Message::Quit ]; for message in &amp;messages { message.">
-  
-
-
-
-
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-
-
-<meta name="generator" content="Hugo 0.68.3" />
-  <title>Rust中的枚举类 | Sparrooow log</title>
-  <link rel="canonical" href="/post/rust-2/">
-
-
-  
+<meta name="author" content="sparrowyang" /><meta name="description" content="这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
 
 
 
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-  
-    
-  
-  
-  <link rel="stylesheet" href="/css/base.min.23cd48cee155498cf8a6f89152dd9fda2bd56047a4845068f7927636fd0c454f.css" integrity="sha256-I81IzuFVSYz4pviRUt2f2ivVYEekhFBo95J2Nv0MRU8=" crossorigin="anonymous">
+<link rel="canonical" href="http://sparrooow.site/post/rust-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Rust中的枚举类" />
+<meta property="og:description" content="这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sparrooow.site/post/rust-2/" />
+<meta property="article:published_time" content="2021-05-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-28T00:00:00+00:00" />
+<meta itemprop="name" content="Rust中的枚举类">
+<meta itemprop="description" content="这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess">
+<meta itemprop="datePublished" content="2021-05-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="211">
+
+
+
+<meta itemprop="keywords" content="enum,rust," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust中的枚举类"/>
+<meta name="twitter:description" content="这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
-
 <body>
-  <nav class="u-background">
-  <div class="u-wrapper">
-    <ul class="Banner">
-      <li class="Banner-item Banner-item--title">
-        <a class="Banner-link u-clickable" href="/">Sparrooow log</a>
-      </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/about/">About</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/post/">Posts</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/tags/">Tags</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/categories/">Categories</a>
-        </li>
-      
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="/index.xml">RSS</a>
-        </li>
-      
-    </ul>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sparrooow</a>
   </div>
-</nav>
-  <main>
-    <div class="u-wrapper">
-      <div class="u-padding">
-        
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-  <article>
-    <header class="Heading">
-  <h2 class="Heading-title">
-    <a class="Heading-link u-clickable" href="/post/rust-2/" rel="bookmark">Rust中的枚举类</a>
-  </h2>
   
-    <time datetime="2021-05-28T00:00:00Z">28 May, 2021</time>
-  
-</header>
-    <p>这关试了很久，终于过了。</p>
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sparrooow</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Rust中的枚举类</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-28 </span>
+        <div class="post-category">
+            <a href="/categories/rust/"> rust </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这关试了很久，终于过了。</p>
 <p><strong>枚举</strong>中嵌套了<strong>结构体</strong>和<strong>元组</strong>。
 由<code>Message::Move{ x: 10, y: 30 }</code>可知，<code>Move</code>是一个结构体，Move定义在<code>Message</code>里，所以<code>Move</code>是一个匿名结构体。
 <code>Echo</code>和<code>ChangeColor</code>是元组，元组的定义只要加元素类型即可。
 <code>Quit</code>是一个普通枚举元素。</p>
 <p>可参考文档<a href="https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html">Enum</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// enums2.rs
-</span><span style="color:#75715e">// Make me compile! Execute `rustlings hint enums2` for hints!
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">#[derive(Debug)]</span>
-<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Message</span> {
-    <span style="color:#75715e">// TODO: define the different variants used below
-</span><span style="color:#75715e"></span>    Move{
-        x:<span style="color:#66d9ef">i32</span>,
-        y:<span style="color:#66d9ef">i32</span>
-    },
-    Echo(String),
-    ChangeColor(
-        <span style="color:#66d9ef">i32</span>,
-        <span style="color:#66d9ef">i32</span>,
-        <span style="color:#66d9ef">i32</span>
-    ),
-    Quit
-}
-<span style="color:#66d9ef">impl</span> Message {
-    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self) {
-        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?}&#34;</span>, <span style="color:#f92672">&amp;</span>self);
-    }
-}
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#66d9ef">let</span> messages <span style="color:#f92672">=</span> [
-        Message::Move{ x: <span style="color:#ae81ff">10</span>, y: <span style="color:#ae81ff">30</span> },
-        Message::Echo(String::from(<span style="color:#e6db74">&#34;hello world&#34;</span>)),
-        Message::ChangeColor(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>),
-        Message::Quit
-    ];
-    <span style="color:#66d9ef">for</span> message <span style="color:#66d9ef">in</span> <span style="color:#f92672">&amp;</span>messages {
-        message.call();
-    }
-}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// enums2.rs
+</span><span class="c1">// Make me compile! Execute `rustlings hint enums2` for hints!
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="cp">#[derive(Debug)]</span><span class="w">
+</span><span class="w"></span><span class="k">enum</span> <span class="nc">Message</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="c1">// TODO: define the different variants used below
+</span><span class="c1"></span><span class="w">    </span><span class="n">Move</span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">x</span>:<span class="kt">i32</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">y</span>:<span class="kt">i32</span>
+    <span class="p">},</span><span class="w">
+</span><span class="w">    </span><span class="n">Echo</span><span class="p">(</span><span class="nb">String</span><span class="p">),</span><span class="w">
+</span><span class="w">    </span><span class="n">ChangeColor</span><span class="p">(</span><span class="w">
+</span><span class="w">        </span><span class="kt">i32</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="kt">i32</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="kt">i32</span><span class="w">
+</span><span class="w">    </span><span class="p">),</span><span class="w">
+</span><span class="w">    </span><span class="n">Quit</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">fn</span> <span class="nf">call</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;{:?}&#34;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="w">        </span><span class="n">Message</span>::<span class="n">Move</span><span class="p">{</span><span class="w"> </span><span class="n">x</span>: <span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="mi">30</span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="w">        </span><span class="n">Message</span>::<span class="n">Echo</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">)),</span><span class="w">
+</span><span class="w">        </span><span class="n">Message</span>::<span class="n">ChangeColor</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">),</span><span class="w">
+</span><span class="w">        </span><span class="n">Message</span>::<span class="n">Quit</span><span class="w">
+</span><span class="w">    </span><span class="p">];</span><span class="w">
+</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">messages</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">call</span><span class="p">();</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
 
-</code></pre></div>
-    
-
-
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">sparrowyang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2021-05-28
+        
+    </span>
+  </p>
   
-
   
-
-
-
-
-
-  <footer>
-    
-      
-        <ul class="Tags">
-          
-            <li class="Tags-item u-background">
-              <a class="Tags-link u-clickable" href="/categories/rust/" rel="tag">rust</a>
-            </li>
-          
-        </ul>
-      
-    
-      
-        <ul class="Tags">
-          
-            <li class="Tags-item u-background">
-              <a class="Tags-link u-clickable" href="/tags/enum/" rel="tag">enum</a>
-            </li>
-          
-            <li class="Tags-item u-background">
-              <a class="Tags-link u-clickable" href="/tags/rust/" rel="tag">rust</a>
-            </li>
-          
-        </ul>
-      
-    
-  </footer>
-
-    
-  
-
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/enum/">enum</a>
+          <a href="/tags/rust/">rust</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/1/">
+            <span class="next-text nav-default">c语言动态库</span>
+            <span class="next-text nav-mobile"></span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
   </article>
+        </div>
+        
 
-
-      </div>
-    </div>
-  </main>
   
-  <footer class="Footer">
-    <div class="u-wrapper">
-      <div class="u-padding">
-        Except where otherwise noted, content on this site is licensed under a &#32; <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International License</a>.
+
+  
+
       </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:sparrooow@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/sparrowyang" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/243950482" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://sparrooow.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+     - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
     </div>
-  </footer>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
 
 </body>
-
 </html>

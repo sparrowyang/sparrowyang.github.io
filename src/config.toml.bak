@@ -1,0 +1,6 @@
+baseURL = "https://sparrooow.site/"
+languageCode = "zh-cn"
+title = "Sparrooow log"
+#theme = "hugo-tania"
+#theme = "hugo-flex"
+theme = "even"
