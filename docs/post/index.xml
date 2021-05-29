@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>Rust 1</title>
+      <title>Rust中的String</title>
       <link>http://sparrooow.site/post/rust-1/</link>
       <pubDate>Sat, 08 May 2021 14:25:07 +0800</pubDate>
       
@@ -45,6 +45,33 @@
       
       <guid>http://sparrooow.site/post/linux-grub/</guid>
       <description>自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼</description>
+    </item>
+    
+    <item>
+      <title>Seq 命令使用</title>
+      <link>http://sparrooow.site/post/seq/</link>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/seq/</guid>
+      <description>前阵子突然刷到这个命令seq,可以用来生成一堆有序的数。 生成速度还挺快的 查看帮助 seq --help 1 2 3 4 5 6 7 8 9 10 11 12 13 14 ┌─[yzf@sparrow</description>
+    </item>
+    
+    <item>
+      <title>ssh配置密钥加密</title>
+      <link>http://sparrooow.site/post/ssh-key-2/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/ssh-key-2/</guid>
+      <description>上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密</description>
+    </item>
+    
+    <item>
+      <title>防止ssh穷举攻击</title>
+      <link>http://sparrooow.site/post/ssh-key/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/ssh-key/</guid>
+      <description>今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&amp;gt;ssh root@sparrow123.xyz root@sparrow123.xyz&amp;#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录</description>
     </item>
     
   </channel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grub on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/grub/</link>
+    <description>Recent content in grub on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://sparrooow.site/tags/grub/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deepin 修改引导界面</title>
+      <link>http://sparrooow.site/post/linux-grub/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/linux-grub/</guid>
+      <description>自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼</description>
+    </item>
+    
+  </channel>
+</rss>

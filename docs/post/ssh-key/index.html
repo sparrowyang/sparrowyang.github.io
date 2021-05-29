@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Deepin 修改引导界面 - Sparrowyang</title>
+  <title>防止ssh穷举攻击 - Sparrowyang</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="sparrowyang" /><meta name="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="sparrowyang" /><meta name="description" content="今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&amp;gt;ssh root@sparrow123.xyz root@sparrow123.xyz&amp;#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="http://sparrooow.site/post/linux-grub/" />
+<link rel="canonical" href="http://sparrooow.site/post/ssh-key/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Deepin 修改引导界面" />
-<meta property="og:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼" />
+<meta property="og:title" content="防止ssh穷举攻击" />
+<meta property="og:description" content="今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&gt;ssh root@sparrow123.xyz root@sparrow123.xyz&#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sparrooow.site/post/linux-grub/" />
-<meta property="article:published_time" content="2020-06-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-15T00:00:00+00:00" />
-<meta itemprop="name" content="Deepin 修改引导界面">
-<meta itemprop="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼">
-<meta itemprop="datePublished" content="2020-06-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="573">
+<meta property="og:url" content="http://sparrooow.site/post/ssh-key/" />
+<meta property="article:published_time" content="2020-01-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-20T00:00:00+00:00" />
+<meta itemprop="name" content="防止ssh穷举攻击">
+<meta itemprop="description" content="今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&gt;ssh root@sparrow123.xyz root@sparrow123.xyz&#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录">
+<meta itemprop="datePublished" content="2020-01-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="547">
 
 
 
-<meta itemprop="keywords" content="grub," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Deepin 修改引导界面"/>
-<meta name="twitter:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼"/>
+<meta itemprop="keywords" content="ssh," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="防止ssh穷举攻击"/>
+<meta name="twitter:description" content="今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&gt;ssh root@sparrow123.xyz root@sparrow123.xyz&#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,10 +128,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Deepin 修改引导界面</h1>
+      <h1 class="post-title">防止ssh穷举攻击</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-06-15 </span>
+        <span class="post-time"> 2020-01-20 </span>
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
@@ -146,9 +146,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#启动列表">启动列表</a></li>
-        <li><a href="#修改启动项">修改启动项</a></li>
-        <li><a href="#一些坑">一些坑</a></li>
+        <li><a href="#今天ssh上服务器突然出现">今天ssh上服务器突然出现</a></li>
       </ul>
     </li>
   </ul>
@@ -156,111 +154,94 @@
   </div>
 </div>
     <div class="post-content">
-      <blockquote>
-<p>自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。</p>
-<p>问题是，每次开机都要和引导拼手速，手动选择进入windows，否则就自动进入deepin了。于是通过修改grub配置，使默认进入winows。</p>
+      <h2 id="今天ssh上服务器突然出现">今天ssh上服务器突然出现</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">C:\Users\sparrow&gt;ssh root@sparrow123.xyz
+root@sparrow123.xyz&#39;s password:
+Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty
+There were 110814 failed login attempts since the last successful login.
+Last login: Mon Jan  6 18:22:38 2020 from 211.64.159.198
+</code></pre></td></tr></table>
+</div>
+</div><p><code>There were 110814 failed login</code>11万次登录失败？什么鬼？
+查一下失败的ip：</p>
+<blockquote>
+<p>222.186.180.41江苏省镇江市 电信</p>
 </blockquote>
-<h2 id="启动列表">启动列表</h2>
-<p>在启动项选择中，一共有四个启动项：</p>
-<ol>
-<li>deepin 15</li>
-<li>deepin 高级设置</li>
-<li>windows 10</li>
-<li>Systemsetup</li>
-</ol>
-<p>默认是选中第一个的，开机时不按上下键选择的话会默认进入deepin。</p>
-<h2 id="修改启动项">修改启动项</h2>
-<p>配置文件在<code>/etc/default/grub</code></p>
-<p>默认情况下的配置是这样的</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span class="c1"># Written by com.deepin.daemon.Grub2</span>
-<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet&#34;</span>
-<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
-<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p><code>GRUB_DEFAULT=0</code>默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。</p>
-<p>修改完保存是还没有效果的，因为没更新，执行</p>
+<p>搜索发现</p>
+<blockquote>
+<p>你服务器 IP 在那儿，那 SSH 开在 TCP 22 上谁都能连，连上了谁都能输密码，密码错了就在系统里留下一条记录。
+要么是被（无差别地）扫到了，要么是有人在盯着你。只说 SSH 登陆这事，<strong>如果你关闭密码登陆</strong>（或者密码足够健壮），那有个就算有一百万个猴子在试你的密码，你也完全不用担心的。</p>
+</blockquote>
+<p>所以选择关闭密码登录(关闭密码登录后用<strong>密钥登录</strong>、已配置过，不提)：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@VM_0_13_centos ~]# cd /etc/ssh/
+[root@VM_0_13_centos ssh]# vim sshd_config
 </code></pre></td></tr></table>
 </div>
-</div><p>更新一下，即可。</p>
-<h2 id="一些坑">一些坑</h2>
-<p>当初装deepin时可能为了解决开机logo 卡死问题，会在<code>/etc/default/grub</code>文件添加<code>acpi_osi=! acpi=&quot;windwos 2009&quot;</code>。我执行完</p>
+</div><p>修改</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-vim" data-lang="vim">#<span class="nx">默认PasswordAuthentication</span> <span class="nx">为yes</span><span class="p">,</span><span class="nx">即允许密码登录</span>，<span class="nx">改为no后</span>，<span class="nx">禁止密码登录</span><span class="err">
+</span><span class="err"></span><span class="nx">PasswordAuthentication</span> <span class="nx">no</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>后会又出现logo卡死问题。因为添加的东西会被更新后没了。</p>
-<p>解决办法是修改<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash quiet acpi_osi=! acpi=\&quot;windwos 2009\&quot;&quot;</code>，改成这样：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span class="c1"># Written by com.deepin.daemon.Grub2</span>
-<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
-<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
-<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p>然后再</p>
+</div><p>重启服务，退出</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@VM_0_13_centos ssh]# systemctl restart sshd.service
+[root@VM_0_13_centos ssh]# logout
+Connection to sparrow123.xyz closed.
 </code></pre></td></tr></table>
 </div>
-</div><p>就没问题了</p>
+</div><p>再次尝试密码登录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">C:\Users\sparrow&gt;ssh root@sparrow123.xyz
+root@sparrow123.xyz: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+</code></pre></td></tr></table>
+</div>
+</div><p>成功，再就不怕别人暴力登录服务器了</p>
+<hr>
+<p>惊讶的是我再次用密钥登陆时提示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Last failed login: Wed Jan 22 22:17:40 CST 2020 from 222.186.30.145 on ssh:notty
+There were 24 failed login attempts since the last successful login.
+</code></pre></td></tr></table>
+</div>
+</div><p><code>There were 24 failed login</code>，说明我在设置禁止密码登录的操作时，他还在暴力登录，<code>222.186.30.145</code>查一下还是江苏省镇江市 电信，这应该是脚本，真无聊~</p>
+<p>当然，可以修改ssh端口也能解决</p>
 
     </div>
 
@@ -272,7 +253,7 @@
   <p class="copyright-item">
     <span class="item-title"></span>
     <span class="item-content">
-        2020-06-15
+        2020-01-20
         
     </span>
   </p>
@@ -281,19 +262,15 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/grub/">grub</a>
+          <a href="/tags/ssh/">ssh</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/rust-1/">
+        <a class="prev" href="/post/ssh-key-2/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Rust中的String</span>
+            <span class="prev-text nav-default">ssh配置密钥加密</span>
             <span class="prev-text nav-mobile"></span>
           </a>
-        <a class="next" href="/post/seq/">
-            <span class="next-text nav-default">Seq 命令使用</span>
-            <span class="next-text nav-mobile"></span>
-            <i class="iconfont icon-right"></i>
-          </a>
+        
       </nav>
     </footer>
   </article>

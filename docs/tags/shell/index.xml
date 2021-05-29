@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell&#34; on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/shell/</link>
+    <description>Recent content in shell&#34; on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Mon, 11 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://sparrooow.site/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Seq 命令使用</title>
+      <link>http://sparrooow.site/post/seq/</link>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/seq/</guid>
+      <description>前阵子突然刷到这个命令seq,可以用来生成一堆有序的数。 生成速度还挺快的 查看帮助 seq --help 1 2 3 4 5 6 7 8 9 10 11 12 13 14 ┌─[yzf@sparrow</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -20,5 +20,14 @@
       <description>这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess</description>
     </item>
     
+    <item>
+      <title>Rust中的String</title>
+      <link>http://sparrooow.site/post/rust-1/</link>
+      <pubDate>Sat, 08 May 2021 14:25:07 +0800</pubDate>
+      
+      <guid>http://sparrooow.site/post/rust-1/</guid>
+      <description>rust study note 1 对 rust中的string 类型和&amp;amp;str类型，有时间好好研究一下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 //</description>
+    </item>
+    
   </channel>
 </rss>

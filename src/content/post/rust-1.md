@@ -1,5 +1,7 @@
 ---
-title: "Rust 1"
+title: "Rust中的String"
+tags : [ "string"]
+categories : ["rust"]
 date: 2021-05-08T14:25:07+08:00
 
 ---

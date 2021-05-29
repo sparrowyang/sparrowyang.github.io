@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>so on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/so/</link>
+    <description>Recent content in so on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://sparrooow.site/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>c语言动态库</title>
+      <link>http://sparrooow.site/post/1/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/1/</guid>
+      <description>动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;#include &amp;#34;fun.h&amp;#34; void info(){ printf(&amp;#34;you know me!&amp;#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &amp;#34;fun.h&amp;#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编</description>
+    </item>
+    
+  </channel>
+</rss>

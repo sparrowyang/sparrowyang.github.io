@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>c语言动态库 - Sparrowyang</title>
+  <title>ssh配置密钥加密 - Sparrowyang</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="sparrowyang" /><meta name="description" content="动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;#include &amp;#34;fun.h&amp;#34; void info(){ printf(&amp;#34;you know me!&amp;#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &amp;#34;fun.h&amp;#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="sparrowyang" /><meta name="description" content="上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="http://sparrooow.site/post/1/" />
+<link rel="canonical" href="http://sparrooow.site/post/ssh-key-2/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="c语言动态库" />
-<meta property="og:description" content="动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &lt;stdio.h&gt;#include &#34;fun.h&#34; void info(){ printf(&#34;you know me!&#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &#34;fun.h&#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编" />
+<meta property="og:title" content="ssh配置密钥加密" />
+<meta property="og:description" content="上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sparrooow.site/post/1/" />
-<meta property="article:published_time" content="2021-05-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-05-22T00:00:00+00:00" />
-<meta itemprop="name" content="c语言动态库">
-<meta itemprop="description" content="动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &lt;stdio.h&gt;#include &#34;fun.h&#34; void info(){ printf(&#34;you know me!&#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &#34;fun.h&#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编">
-<meta itemprop="datePublished" content="2021-05-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-22T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="160">
+<meta property="og:url" content="http://sparrooow.site/post/ssh-key-2/" />
+<meta property="article:published_time" content="2020-02-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-04T00:00:00+00:00" />
+<meta itemprop="name" content="ssh配置密钥加密">
+<meta itemprop="description" content="上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密">
+<meta itemprop="datePublished" content="2020-02-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="849">
 
 
 
-<meta itemprop="keywords" content="so," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="c语言动态库"/>
-<meta name="twitter:description" content="动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &lt;stdio.h&gt;#include &#34;fun.h&#34; void info(){ printf(&#34;you know me!&#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &#34;fun.h&#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编"/>
+<meta itemprop="keywords" content="ssh," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ssh配置密钥加密"/>
+<meta name="twitter:description" content="上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,12 +128,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">c语言动态库</h1>
+      <h1 class="post-title">ssh配置密钥加密</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-05-22 </span>
+        <span class="post-time"> 2020-02-04 </span>
         <div class="post-category">
-            <a href="/categories/c/"> c </a>
+            <a href="/categories/linux/"> linux </a>
             </div>
         
       </div>
@@ -144,11 +144,13 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#动态库的构建">动态库的构建</a>
+    <li>
       <ul>
-        <li><a href="#编写库">编写库</a></li>
-        <li><a href="#编译">编译</a></li>
-        <li><a href="#使用">使用</a></li>
+        <li><a href="#公钥与密钥">公钥与密钥</a></li>
+        <li><a href="#本地生成一对公钥私钥">本地生成一对公钥私钥</a></li>
+        <li><a href="#发送到远程">发送到远程</a></li>
+        <li><a href="#追加公钥">追加公钥</a></li>
+        <li><a href="#完成">完成</a></li>
       </ul>
     </li>
   </ul>
@@ -156,130 +158,135 @@
   </div>
 </div>
     <div class="post-content">
-      <h1 id="动态库的构建">动态库的构建</h1>
-<h2 id="编写库">编写库</h2>
-<p><code>fun.h</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">info</span><span class="p">();</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>fun.c</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;fun.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="kt">void</span> <span class="nf">info</span><span class="p">(){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;you know me!&#34;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="编译">编译</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -fPIC -shared fun.c -o libfun123.so
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="使用">使用</h2>
-<p><code>main.c</code>:</p>
+      <blockquote>
+<p>上次防止服务器被<code>ssh</code>爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。
+所以，这不，刚学了密码学，对密钥的加密就感觉十分亲切。
+所以就写一篇的文章记录一下配置密钥</p>
+</blockquote>
+<h2 id="公钥与密钥">公钥与密钥</h2>
+<p>加密分为<strong>对称加密</strong>和<strong>非对称加密</strong>。而我们常用的加密解密都用同一样的密码的就是对称的。
+而公钥私钥的密钥加密是非对称的加密（也叫公钥密码）</p>
+<p>通俗点来说，<strong>公钥</strong>像一把<strong>锁</strong>。你把锁寄给对方，对方用你的锁锁住了包裹后发给你。
+<strong>私钥</strong>就像<strong>钥匙</strong>。你收到他的包裹后用你的钥匙打开。</p>
+<p>本文也不细聊公钥私钥原理了 <del>(其实我就是不懂，菜)</del></p>
+<h2 id="本地生成一对公钥私钥">本地生成一对公钥私钥</h2>
+<p>首先在本地生成一对公钥私钥</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;fun.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">info</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc main.c libfun123.so -o app.out
-</code></pre></td></tr></table>
-</div>
-</div><p>此时检查编译的可执行文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">➞  ldd app.out
-        linux-vdso.so.1 <span class="o">(</span>0x00007fffdbbee000<span class="o">)</span>
-        libfun123.so <span class="o">=</span>&gt; not found
-        libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007f2f3e5a9000<span class="o">)</span>
-        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f2f3e7cf000<span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>发现找不到动态库，我们将库需要加入到库目录中。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:/mnt/d/workspace/codeblock/temp/share
+<pre class="chroma"><code class="language-bash" data-lang="bash">➞  <span class="nb">cd</span> .ssh
 
+~/.ssh
+➞  ssh-keygen -t rsa
 </code></pre></td></tr></table>
 </div>
-</div><p>此时找到了</p>
+</div><p>生成后会多出两个文件<code>id_rsa.pub</code> 和<code>id_rsa</code>即为公私钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/.ssh
+➞  ls
+authorized_keys  id_rsa  id_rsa.pub  known_hosts
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="发送到远程">发送到远程</h2>
+<p>使用<code>SCP</code>把公钥发送到远程电脑</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">➞  ldd app.out
-        linux-vdso.so.1 <span class="o">(</span>0x00007ffcfcf96000<span class="o">)</span>
-        libfun123.so <span class="o">=</span>&gt; /mnt/d/workspace/codeblock/temp/share/libfun123.so <span class="o">(</span>0x00007fcdd8cb7000<span class="o">)</span>
-        libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007fcdd8a98000<span class="o">)</span>
-        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007fcdd8cc3000<span class="o">)</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/.ssh
+➞  scp ./id_rsa.pub root@xx.xx.xx.xx:~/.ssh
+root@sparrooow.site<span class="err">&#39;</span>s password:
+id_rsa.pub                                                                           100%  <span class="m">571</span>     6.6KB/s
 </code></pre></td></tr></table>
 </div>
-</div><p>运行：</p>
+</div><h2 id="追加公钥">追加公钥</h2>
+<p>先用密码登录远程电脑(最后一次用密码登录了，<del>事实上并不是</del>)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">➞  ./app.out
-you know me!% 
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/.ssh
+➞  ssh root@xx.xx.xx.xx
 </code></pre></td></tr></table>
 </div>
+</div><p>创建一个在<code>.ssh</code>文件夹里创建<code>authorized_keys</code>文件（有了就跳过），用于保存公钥信息。<strong>权限600</strong>,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /root/.ssh/
+touch authorized_keys
+chmod <span class="m">600</span> /root/.ssh/authorized_keys
+</code></pre></td></tr></table>
 </div>
+</div><p>追加刚才发的公钥到<code>authorized_keys</code>中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat id_rsa.pub &gt;&gt; authorized_keys
+</code></pre></td></tr></table>
+</div>
+</div><p>至此，完事。</p>
+<h2 id="完成">完成</h2>
+<p>尝试用本地电脑登陆一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">➞  ssh root@xx.xx.xx.xx 
+Last login: Mon Jun <span class="m">22</span> 20:41:59 <span class="m">2020</span> from 223.104.93.83
+//
+//   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+// ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+// ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+// ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+// ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+//  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+//  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+//  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+//           ░     ░ ░      ░  ░
+//
+<span class="o">[</span>root@VM_0_13_centos ~<span class="o">]</span>#
+</code></pre></td></tr></table>
+</div>
+</div><p>完美！</p>
+
     </div>
 
     <div class="post-copyright">
@@ -290,7 +297,7 @@ you know me!%
   <p class="copyright-item">
     <span class="item-title"></span>
     <span class="item-content">
-        2021-05-22
+        2020-02-04
         
     </span>
   </p>
@@ -299,16 +306,16 @@ you know me!%
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/so/">so</a>
+          <a href="/tags/ssh/">ssh</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/rust-2/">
+        <a class="prev" href="/post/seq/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Rust中的枚举类</span>
+            <span class="prev-text nav-default">Seq 命令使用</span>
             <span class="prev-text nav-mobile"></span>
           </a>
-        <a class="next" href="/post/rust-1/">
-            <span class="next-text nav-default">Rust中的String</span>
+        <a class="next" href="/post/ssh-key/">
+            <span class="next-text nav-default">防止ssh穷举攻击</span>
             <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>

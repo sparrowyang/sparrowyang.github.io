@@ -65,7 +65,21 @@
   </url>
   
   <url>
+    <loc>http://sparrooow.site/categories/c/</loc>
+    <lastmod>2021-05-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://sparrooow.site/post/1/</loc>
+    <lastmod>2021-05-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/tags/so/</loc>
     <lastmod>2021-05-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -79,8 +93,64 @@
   </url>
   
   <url>
+    <loc>http://sparrooow.site/tags/string/</loc>
+    <lastmod>2021-05-08T14:25:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://sparrooow.site/post/linux-grub/</loc>
     <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/tags/grub/</loc>
+    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/categories/linux/</loc>
+    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/post/seq/</loc>
+    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/tags/shell/</loc>
+    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/tags/ssh/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/post/ssh-key-2/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://sparrooow.site/post/ssh-key/</loc>
+    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

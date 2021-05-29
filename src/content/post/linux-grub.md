@@ -1,6 +1,8 @@
 ---
 title: "Deepin 修改引导界面"
 date: 2020-06-15
+tags : [ "grub"]
+categories : ["linux"]
 draft: false 
 ---
 
