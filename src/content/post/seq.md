@@ -1,8 +1,9 @@
 ---
 title: "Seq 命令使用"
 date: "2020-05-11"
-tags : [ shell"]
+tags : [ "shell"]
 categories : ["linux"]
+author: "sparrowyang"
 draft: false
 ---
 

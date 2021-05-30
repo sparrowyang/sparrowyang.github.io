@@ -3,6 +3,7 @@ title: "ssh配置密钥加密"
 date: "2020-02-04"
 tags : [ "ssh"]
 categories : ["linux"]
+author: "sparrowyang"
 draft: false
 ---
 

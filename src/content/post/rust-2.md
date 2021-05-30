@@ -1,8 +1,11 @@
 ---
 title: "Rust中的枚举类"
 date: "2021-05-28"
-tags : [ "enum","rust"]
+lastmod: "2021-05-28"
+tags : [ "enum","rust","rustlings"]
 categories : ["rust"]
+author: "sparrowyang"
+
 draft: false 
 ---
 

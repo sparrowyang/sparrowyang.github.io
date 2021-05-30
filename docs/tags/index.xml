@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Sparrowyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://sparrooow.site/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>enum</title>
       <link>http://sparrooow.site/tags/enum/</link>
-      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
       
       <guid>http://sparrooow.site/tags/enum/</guid>
       <description></description>
@@ -23,9 +23,18 @@
     <item>
       <title>rust</title>
       <link>http://sparrooow.site/tags/rust/</link>
-      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
       
       <guid>http://sparrooow.site/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rustlings</title>
+      <link>http://sparrooow.site/tags/rustlings/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/tags/rustlings/</guid>
       <description></description>
     </item>
     
@@ -57,7 +66,7 @@
     </item>
     
     <item>
-      <title>shell&#34;</title>
+      <title>shell</title>
       <link>http://sparrooow.site/tags/shell/</link>
       <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
       

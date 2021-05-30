@@ -1,7 +1,8 @@
 ---
 title: "Rust中的String"
-tags : [ "string"]
+tags : [ "string","rust","rustlings"]
 categories : ["rust"]
+author: "sparrowyang"
 date: 2021-05-08T14:25:07+08:00
 
 ---

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Sparrowyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://sparrooow.site/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust中的枚举类2</title>
+      <link>http://sparrooow.site/post/rust-3/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/rust-3/</guid>
+      <description>好家伙，我还是低估了这奇怪的语法。 首先枚举里每个元素都是不同类型，可以由下面的几个trait推断出，行吧，这也不算奇怪。 1 2 3 4 5 6 7 enum Message {</description>
+    </item>
     
     <item>
       <title>Rust中的枚举类</title>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rust on Sparrowyang</title>
-    <link>http://sparrooow.site/tags/rust/</link>
-    <description>Recent content in rust on Sparrowyang</description>
+    <title>rustlings on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/rustlings/</link>
+    <description>Recent content in rustlings on Sparrowyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://sparrooow.site/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sparrooow.site/tags/rustlings/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
