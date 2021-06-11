@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Asciinemaplayer</title>
+      <link>http://sparrooow.site/post/asciinemaplayer/</link>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/asciinemaplayer/</guid>
+      <description>Recod a cast install a asciinema in you computer.
+1  ascinema rec hello.cast   copy hello.cast to static/ascrec/
+Use in your Markdown file 1  [[% asciinema cf=&amp;#34;hello.cast&amp;#34; speed=&amp;#34;2&amp;#34; theme=&amp;#34;solarized-light&amp;#34; rows=&amp;#34;20&amp;#34; %]]   (To avoid Render, I use &amp;lsquo;[&amp;rsquo; to replace &amp;lsquo;{&#39;, you must replce again! )
+result:</description>
+    </item>
+    
+    <item>
       <title>Rust中的枚举类2</title>
       <link>http://sparrooow.site/post/rust-3/</link>
       <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
@@ -35,7 +47,8 @@
       <pubDate>Sat, 22 May 2021 23:12:10 +0800</pubDate>
       
       <guid>http://sparrooow.site/about/</guid>
-      <description></description>
+      <description>Who am I? A Student of Computer Science &amp;amp; Technology in Ouc
+Education  2018 - Now OUC  Skill Test</description>
     </item>
     
     <item>
