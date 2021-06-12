@@ -17,9 +17,10 @@
       <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>http://sparrooow.site/post/asciinemaplayer/</guid>
-      <description>Recod a cast install a asciinema in you computer.
-1  ascinema rec hello.cast   copy hello.cast to static/ascrec/
-Use in your Markdown file 1  [[% asciinema cf=&amp;#34;hello.cast&amp;#34; speed=&amp;#34;2&amp;#34; theme=&amp;#34;solarized-light&amp;#34; rows=&amp;#34;20&amp;#34; %]]   (To avoid Render, I use &amp;lsquo;[&amp;rsquo; to replace &amp;lsquo;{&#39;, you must replce again! )
+      <description>asciinema home page
+Record a cast install a asciinema in you computer, and record a cast
+1  ascinema rec hello.cast   copy hello.cast to path-to-your-hugo/static/ascrec/
+Use shortcode in your Markdown file 1  [[% asciinema cf=&amp;#34;hello.cast&amp;#34; speed=&amp;#34;2&amp;#34; theme=&amp;#34;solarized-light&amp;#34; rows=&amp;#34;20&amp;#34; %]]   (To avoid Render, I use &amp;lsquo;[&amp;rsquo; to replace &amp;lsquo;{&#39;, you must replce again! )
 result:</description>
     </item>
     
