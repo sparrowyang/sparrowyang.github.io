@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书笔记 on Sparrowyang</title>
+    <link>http://sparrooow.site/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://sparrooow.site/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《C&#43;&#43;Primer》笔记</title>
+      <link>http://sparrooow.site/post/cpp_prime/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/cpp_prime/</guid>
+      <description>变量 变量初始化 1 2 3 4 int n = 0; int n = {0}; int n{0}; int n(0); 花括号（列表初始化）会对初始化时类型转换进行检查，若数据信息丢失（舍去）会报错.C++11. 在</description>
+    </item>
+    
+    <item>
+      <title>《精通Linux》笔记</title>
+      <link>http://sparrooow.site/post/know_linux/</link>
+      <pubDate>Sat, 26 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/know_linux/</guid>
+      <description>很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以</description>
+    </item>
+    
+  </channel>
+</rss>

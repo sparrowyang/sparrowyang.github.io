@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cross compile on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/cross-compile/</link>
+    <description>Recent content in cross compile on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Mon, 23 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://sparrooow.site/tags/cross-compile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust交叉编译初学</title>
+      <link>http://sparrooow.site/post/rust-cross-compile/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/rust-cross-compile/</guid>
+      <description>今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。 按照官网给的编译教程，先安装编译的</description>
+    </item>
+    
+  </channel>
+</rss>

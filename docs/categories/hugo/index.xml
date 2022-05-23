@@ -6,11 +6,7 @@
     <description>Recent content in hugo on Sparrowyang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://sparrooow.site/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://sparrooow.site/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Asciinemaplayer</title>
       <link>http://sparrooow.site/post/asciinemaplayer/</link>
@@ -19,8 +15,8 @@
       <guid>http://sparrooow.site/post/asciinemaplayer/</guid>
       <description>asciinema home page
 Record a cast install a asciinema in you computer, and record a cast
-1  ascinema rec hello.cast   copy hello.cast to path-to-your-hugo/static/ascrec/
-Use shortcode in your Markdown file 1  [[% asciinema cf=&amp;#34;hello.cast&amp;#34; speed=&amp;#34;2&amp;#34; theme=&amp;#34;solarized-light&amp;#34; rows=&amp;#34;20&amp;#34; %]]   (To avoid Render, I use &amp;lsquo;[&amp;rsquo; to replace &amp;lsquo;{&#39;, you must replce again! )
+1  asciinema rec hello.cast   copy hello.cast to path-to-your-hugo/static/ascrec/
+Use shortcode in your Markdown file 1  [[% asciinema cf=&amp;#34;hello.cast&amp;#34; speed=&amp;#34;2&amp;#34; theme=&amp;#34;solarized-light&amp;#34; rows=&amp;#34;20&amp;#34; %]]   (To avoid Render, I use &amp;lsquo;[&amp;rsquo; to replace &amp;lsquo;{&amp;rsquo;, you must replce again! )
 result:</description>
     </item>
     

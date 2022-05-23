@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.98.0 with theme even" />
 
 
 <link rel="canonical" href="http://sparrooow.site/post/linux-grub/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Deepin 修改引导界面" />
 <meta property="og:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sparrooow.site/post/linux-grub/" />
+<meta property="og:url" content="http://sparrooow.site/post/linux-grub/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-06-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-06-15T00:00:00+00:00" />
+
 <meta itemprop="name" content="Deepin 修改引导界面">
-<meta itemprop="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼">
-<meta itemprop="datePublished" content="2020-06-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="573">
-
-
-
+<meta itemprop="description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼"><meta itemprop="datePublished" content="2020-06-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="571">
 <meta itemprop="keywords" content="grub," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deepin 修改引导界面"/>
 <meta name="twitter:description" content="自从装了deepin 15，也没多少时间用，大多是时间还是用windows，但是有些东西还是要在deepin 上跑。 问题是，每次开机都要和引导拼"/>
@@ -139,7 +136,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 573 字 </span>
+          <span class="more-meta"> 约 571 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -180,7 +177,7 @@
 <p>默认情况下的配置是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -190,48 +187,46 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span class="c1"># Written by com.deepin.daemon.Grub2</span>
-<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet&#34;</span>
-<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
-<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sparrow@sparrow-PC:~$ cat /etc/default/grub
+</span></span><span class="line"><span class="cl"><span class="c1"># Written by com.deepin.daemon.Grub2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>GRUB_DEFAULT=0</code>默认第1个选项，因为windows 10 是第3个启动项，所以修改为2。</p>
 <p>修改完保存是还没有效果的，因为没更新，执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-grub
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>更新一下，即可。</p>
 <h2 id="一些坑">一些坑</h2>
 <p>当初装deepin时可能为了解决开机logo 卡死问题，会在<code>/etc/default/grub</code>文件添加<code>acpi_osi=! acpi=&quot;windwos 2009&quot;</code>。我执行完</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-grub
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>后会又出现logo卡死问题。因为添加的东西会被更新后没了。</p>
 <p>解决办法是修改<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash quiet acpi_osi=! acpi=\&quot;windwos 2009\&quot;&quot;</code>，改成这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -241,30 +236,28 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sparrow@sparrow-PC:~$ cat /etc/default/grub
-<span class="c1"># Written by com.deepin.daemon.Grub2</span>
-<span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
-<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">2</span>
-<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
-<span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
-<span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
-<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sparrow@sparrow-PC:~$ cat /etc/default/grub
+</span></span><span class="line"><span class="cl"><span class="c1"># Written by com.deepin.daemon.Grub2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DEEPIN_GFXMODE_ADJUSTED</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;splash quiet acpi_osi=! acpi=\&#34;windwos 2009\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&#34;`/usr/bin/lsb_release -d -s 2&gt;/dev/null || echo Deepin`&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_GFXMODE</span><span class="o">=</span>1920x1080
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_THEME</span><span class="o">=</span><span class="s2">&#34;/boot/grub/themes/deepin/theme.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后再</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-grub
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>就没问题了</p>
 
@@ -336,7 +329,7 @@
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
   </span>
 </div>
 
@@ -353,7 +346,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script></script><script src="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/js/asciinema-player.js" integrity="sha256-RhMkYvfU/IITmQKEXZOpX54ucn3OJaqGr8HdGi2Wi3c=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/css/asciinema-player.css" integrity="sha256-Us+G/D2x4qaNPj8UgpY7kqzO6f6cYyh5w7IWfZsrJPo=" crossorigin="anonymous">
 

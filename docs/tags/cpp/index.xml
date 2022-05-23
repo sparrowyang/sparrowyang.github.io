@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cpp on Sparrowyang</title>
+    <link>http://sparrooow.site/tags/cpp/</link>
+    <description>Recent content in cpp on Sparrowyang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Sat, 07 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://sparrooow.site/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《C&#43;&#43;Primer》笔记</title>
+      <link>http://sparrooow.site/post/cpp_prime/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://sparrooow.site/post/cpp_prime/</guid>
+      <description>变量 变量初始化 1 2 3 4 int n = 0; int n = {0}; int n{0}; int n(0); 花括号（列表初始化）会对初始化时类型转换进行检查，若数据信息丢失（舍去）会报错.C++11. 在</description>
+    </item>
+    
+  </channel>
+</rss>

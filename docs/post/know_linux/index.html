@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>《精通Linux》笔记 - Sparrowyang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="sparrowyang" /><meta name="description" content="很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.98.0 with theme even" />
+
+
+<link rel="canonical" href="http://sparrooow.site/post/know_linux/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="《精通Linux》笔记" />
+<meta property="og:description" content="很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sparrooow.site/post/know_linux/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-26T00:00:00+00:00" />
+
+<meta itemprop="name" content="《精通Linux》笔记">
+<meta itemprop="description" content="很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以"><meta itemprop="datePublished" content="2021-06-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1008">
+<meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《精通Linux》笔记"/>
+<meta name="twitter:description" content="很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sparrooow</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sparrooow</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">《精通Linux》笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-06-26 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+            </div>
+          <span class="more-meta"> 约 1008 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#命令行的快捷键">命令行的快捷键</a></li>
+    <li><a href="#man命令的-k选项">man命令的<code>-k</code>选项</a></li>
+    <li><a href="#标准错误输出">标准错误输出</a>
+      <ul>
+        <li><a href="#编程时过滤错误信息">编程时过滤错误信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>很久之前就读了这本书，当时略看了一遍，觉得比较基础，面向新手，之后有想写读书笔记的想法，所以细看了一遍，感觉很多细节还是很讲的很清楚的。所以打算摘录一些个人觉得有一些值得学习的地方，当然如果是新手的话，全书都还是值得看的。</p>
+</blockquote>
+<h1 id="命令行的快捷键">命令行的快捷键</h1>
+<p>书中提到了命令例的快捷键，原来有这么多，用了快两年的命令行了只知道<code>CTRL+A</code>和<code>CTRL+E</code>，惭愧。</p>
+<p>CTRL-B 左移光标</p>
+<p>CTRL-F 右移光标</p>
+<p>CTRL-P 查看上一条命令(或上移光标)</p>
+<p>CTRL-N 查看下一条命令(或下移光标)</p>
+<p>CTRL-A 移动光标至行首</p>
+<p>CTRL-E 移动光标至行尾</p>
+<p>CTRL-W 删除前一个词</p>
+<p>CTRL-U 删除从光标至行首的内容</p>
+<p>CTRL-K 删除从光标至行尾的内容</p>
+<p>CTRL-Y 粘贴已删除的文本(例如粘贴CTRL-U所删除的内容)</p>
+<h1 id="man命令的-k选项">man命令的<code>-k</code>选项</h1>
+<p>之前，只会用<code>man</code>查询某个命令的用法，而<code>-k</code>可以根据关键词搜索相关的命令，例如搜索<code>reverse</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># man -k reverse
+</span></span><span class="line"><span class="cl">bswap (3)            - reverse order of bytes
+</span></span><span class="line"><span class="cl">bswap_16 (3)         - reverse order of bytes
+</span></span><span class="line"><span class="cl">bswap_32 (3)         - reverse order of bytes
+</span></span><span class="line"><span class="cl">bswap_64 (3)         - reverse order of bytes
+</span></span><span class="line"><span class="cl">col (1)              - filter reverse line feeds from input
+</span></span><span class="line"><span class="cl">git-rev-list (1)     - Lists commit objects in reverse chronological order
+</span></span><span class="line"><span class="cl">rev (1)              - reverse lines characterwise
+</span></span><span class="line"><span class="cl">revoutput (3am)      - Reverse output strings sample extension
+</span></span><span class="line"><span class="cl">revtwoway (3am)      - Reverse strings sample two-way processor extension
+</span></span><span class="line"><span class="cl">tac (1)              - concatenate and print files in reverse
+</span></span><span class="line"><span class="cl">TAILQ_FOREACH_REVERSE (3) - implementations of singly-linked lists, singly-linked tail queues, lists and tail queues
+</span></span><span class="line"><span class="cl">xxd (1)              - make a hexdump or do the reverse.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>其中，<code>tac</code>（行反转）和<code>rev</code>（字符反转）都是挺有用的命令。</p>
+</blockquote>
+<h1 id="标准错误输出">标准错误输出</h1>
+<p>于标准输出<code>/dev/stdout</code>相对应的是标准错误输出<code>/dev/stderr</code>。当我们使用重定向符号的时候，错误仍然会输出到终端，要想将错误信息也重定向，则可以这样做：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ls /fffffffff &gt;content.txt 2&gt; error.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果<code>/fffffffff</code>文件存在，则会列出文件信息到<code>content.txt</code>，如果产生错误，比如文件不存在，则会将错误信息重定向到<code>error.txt</code>。而下面则会将正确和错误都重定向到一个文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ls /fffffffff &gt; result.txt 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编程时过滤错误信息">编程时过滤错误信息</h2>
+<p>这个在书中没有提到，之前在编程时遇到了，所以顺带想起来提一下。在c++中，大部分人都会使用<code>std::cout</code>输出信息，当然这样输出的信息都算在标准输出内。要想写的程序在重定向的时候一些自定义的错误信息仍然在终端中显示，这需要用<code>std::cerr</code>，当然还有也介于错误输出和标准输出之间的<code>std::clog</code>，下面的例子我截取之前写过的代码，其中省略了变量的定义、赋值和大部分逻辑（当然编译会不通过），只保留和本内容的部分：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//some code...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">BSL_Build_Trie</span><span class="p">(</span><span class="kt">double</span> <span class="n">e</span><span class="p">,</span> <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//some code ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">clog</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;theta:&#34;</span> <span class="o">&lt;&lt;</span><span class="n">global_theta</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">clog</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;readline:&#34;</span> <span class="o">&lt;&lt;</span><span class="n">global_readline</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;readline,&#34;</span> <span class="o">&lt;&lt;</span><span class="n">global_readline</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;theta,&#34;</span> <span class="o">&lt;&lt;</span><span class="n">global_theta</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//some code..
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span><span class="p">(</span><span class="k">const</span> <span class="n">FileIOException</span> <span class="o">&amp;</span><span class="n">fioex</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Please choose a conf file&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span><span class="p">(</span><span class="k">const</span> <span class="n">ParseException</span> <span class="o">&amp;</span><span class="n">pex</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span><span class="s">&#34;Check the file format.&#34;</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">sparrowyang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-06-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/cpp_prime/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">《C&#43;&#43;Primer》笔记</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/asciinemaplayer/">
+            <span class="next-text nav-default">Asciinemaplayer</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:sparrooow@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/sparrowyang" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/243950482" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://sparrooow.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+  <script></script><script src="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/js/asciinema-player.js" integrity="sha256-RhMkYvfU/IITmQKEXZOpX54ucn3OJaqGr8HdGi2Wi3c=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/css/asciinema-player.css" integrity="sha256-Us+G/D2x4qaNPj8UgpY7kqzO6f6cYyh5w7IWfZsrJPo=" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+</body>
+</html>

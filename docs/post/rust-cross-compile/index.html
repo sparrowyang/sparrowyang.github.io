@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Rust交叉编译初学 - Sparrowyang</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="sparrowyang" /><meta name="description" content="今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。 按照官网给的编译教程，先安装编译的" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.98.0 with theme even" />
+
+
+<link rel="canonical" href="http://sparrooow.site/post/rust-cross-compile/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Rust交叉编译初学" />
+<meta property="og:description" content="今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。 按照官网给的编译教程，先安装编译的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sparrooow.site/post/rust-cross-compile/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="Rust交叉编译初学">
+<meta itemprop="description" content="今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。 按照官网给的编译教程，先安装编译的"><meta itemprop="datePublished" content="2022-05-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="551">
+<meta itemprop="keywords" content="rust,cross compile," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust交叉编译初学"/>
+<meta name="twitter:description" content="今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。 按照官网给的编译教程，先安装编译的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sparrooow</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sparrooow</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Rust交叉编译初学</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-05-23 </span>
+        <div class="post-category">
+            <a href="/categories/rust/"> rust </a>
+            </div>
+          <span class="more-meta"> 约 551 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>今天写了个TCP监控程序，想试试能不能交叉编译到其他平台。比如我的安卓手机(arrch64/arm架构)。</p>
+<p>按照官网给的编译教程，先安装编译的工具：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustup target add aarch64-unknown-linux-gnu
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后使用命令检查编译构建<code>arrch64</code>平台应用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo build --release --target<span class="o">=</span>aarch64-unknown-linux-gnu
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>果不其然，报错了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">`</span><span class="n">cc</span><span class="o">`</span><span class="w"> </span><span class="n">failed</span><span class="p">:</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>查阅<a href="https://users.rust-lang.org/t/unable-to-compile-to-aarch64-unknown-linux-gnu/53517">资料</a>发现需要在<code>～/.cargo/config</code>中加入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[target.aarch64-unknown-linux-gnu]
+</span></span><span class="line"><span class="cl">linker = &#34;aarch64-linux-gnu-gcc&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此外还得安装<code>aarch64-linux-gnu-gcc</code>，我使用<code>pacman</code>很轻松的安装上了。之后成功编译。我迫不及待的将程序发送到我的手机上，在<code>termux</code>中运行。然而运行不了。提示“No such file or directory”，当然程序是存在的且有运行权限。经验告诉我，这应该是程序平台架构不符。我使用<code>file</code>命令查看文件，得到的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ttccpp: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=a21fa7de1aec8979940695e98523aff8637d5541, for GNU/Linux 3.7.0, with debug_info, not stripped
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但的确显示的是arrch64,64bit。于是我把代码发到<code>termux</code>中构建，得到能运行的程序文件。同样使用<code>file</code>命令查看:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tccpp2: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, not stripped
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>发现两者的不同点在<code>interpreter</code>,于是我发现手机中存在<code>/system/bin/linker64</code>但不存在<code>/lib/ld-linux-aarch64.so.1</code>，这是不能运行的原因。</p>
+<p>最后尝试了其他选择的交叉编译，都报错了。知道问题所在，但不知道问题的解决方法。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">sparrowyang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-05-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rust/">rust</a>
+          <a href="/tags/cross-compile/">cross compile</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/cpp_prime/">
+            <span class="next-text nav-default">《C&#43;&#43;Primer》笔记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:sparrooow@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/sparrowyang" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/243950482" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://sparrooow.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+  <script></script><script src="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/js/asciinema-player.js" integrity="sha256-RhMkYvfU/IITmQKEXZOpX54ucn3OJaqGr8HdGi2Wi3c=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/css/asciinema-player.css" integrity="sha256-Us+G/D2x4qaNPj8UgpY7kqzO6f6cYyh5w7IWfZsrJPo=" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.98.0 with theme even" />
 
 
 <link rel="canonical" href="http://sparrooow.site/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,7 +45,7 @@
 <meta property="og:description" content="sparrowyang  blog." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://sparrooow.site/" />
-<meta property="og:updated_time" content="2021-05-22T23:12:10+08:00" />
+
 <meta itemprop="name" content="Sparrowyang">
 <meta itemprop="description" content="sparrowyang  blog."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sparrowyang"/>
@@ -126,13 +126,82 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/rust-2/">Rust中的枚举类</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-05-28 </span>
+      <div class="post-category">
+          <a href="/categories/rust/"> rust </a>
+          </div>
+        <span class="more-meta"> 约 210 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      这关试了很久，终于过了。 枚举中嵌套了结构体和元组。 由Message::Move{ x: 10, y: 30 }可知，Move是一个结构体，Move定义在Mess
+    </div>
+    <div class="read-more">
+      <a href="/post/rust-2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/1/">c语言动态库</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-05-22 </span>
+      <div class="post-category">
+          <a href="/categories/c/"> c </a>
+          </div>
+        <span class="more-meta"> 约 159 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      动态库的构建 编写库 fun.h: 1 void info(); fun.c: 1 2 3 4 5 6 #include &lt;stdio.h&gt;#include &#34;fun.h&#34; void info(){ printf(&#34;you know me!&#34;); } 编译 1 gcc -fPIC -shared fun.c -o libfun123.so 使用 main.c: 1 2 3 4 5 6 #include &#34;fun.h&#34;int main(int argc, char const *argv[]) { info(); return 0; } 1 gcc main.c libfun123.so -o app.out 此时检查编
+    </div>
+    <div class="read-more">
+      <a href="/post/1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/rust-1/">Rust中的String</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-05-08 </span>
+      <div class="post-category">
+          <a href="/categories/rust/"> rust </a>
+          </div>
+        <span class="more-meta"> 约 157 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      rust study note 1 对 rust中的string 类型和&amp;str类型，有时间好好研究一下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 // quiz2.rs
+    </div>
+    <div class="read-more">
+      <a href="/post/rust-1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux-grub/">Deepin 修改引导界面</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-06-15 </span>
       <div class="post-category">
           <a href="/categories/linux/"> linux </a>
           </div>
-        <span class="more-meta"> 约 573 字 </span>
+        <span class="more-meta"> 约 571 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
     </div>
   </header>
@@ -170,52 +239,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ssh-key-2/">ssh配置密钥加密</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-02-04 </span>
-      <div class="post-category">
-          <a href="/categories/linux/"> linux </a>
-          </div>
-        <span class="more-meta"> 约 849 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      上次防止服务器被ssh爆破的时候，提到了密钥加密。但是当时只是知道要这么做，也不理解为什么可以这么做。 所以，这不，刚学了密码学，对密钥的加密
-    </div>
-    <div class="read-more">
-      <a href="/post/ssh-key-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ssh-key/">防止ssh穷举攻击</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-01-20 </span>
-      <div class="post-category">
-          <a href="/categories/linux/"> linux </a>
-          </div>
-        <span class="more-meta"> 约 547 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      今天ssh上服务器突然出现 1 2 3 4 5 C:\Users\sparrow&gt;ssh root@sparrow123.xyz root@sparrow123.xyz&#39;s password: Last failed login: Wed Jan 22 22:06:27 CST 2020 from 222.186.180.41 on ssh:notty There were 110814 failed login attempts since the last successful login. Last login: Mon Jan 6 18:22:38 2020 from 211.64.159.198 There were 110814 failed login11万次登录
-    </div>
-    <div class="read-more">
-      <a href="/post/ssh-key/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -223,7 +246,10 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/3/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
@@ -254,7 +280,7 @@
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>sparrowyang</span>
   </span>
 </div>
 
@@ -271,7 +297,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
   <script></script><script src="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/js/asciinema-player.js" integrity="sha256-RhMkYvfU/IITmQKEXZOpX54ucn3OJaqGr8HdGi2Wi3c=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@2.6.1/resources/public/css/asciinema-player.css" integrity="sha256-Us+G/D2x4qaNPj8UgpY7kqzO6f6cYyh5w7IWfZsrJPo=" crossorigin="anonymous">
 

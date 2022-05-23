@@ -4,7 +4,7 @@ date: "2021-06-26"
 tags : ["linux"]
 categories : ["读书笔记"]
 author: "sparrowyang"
-draft: ture 
+draft: false 
 
 ---
 

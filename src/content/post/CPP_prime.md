@@ -4,7 +4,7 @@ date: "2022-05-07"
 tags : ["cpp"]
 categories : ["读书笔记"]
 author: "sparrowyang"
-draft: ture 
+draft: false 
 ---
 # 变量
 ## 变量初始化
@@ -84,8 +84,8 @@ r = &n
 ```
 
 ### const 指针
-1. 顶层const 靠近等号的 用来修饰指针本身
-2. 底层const 远离等号的 用来修饰指向的的对象
+1. 顶层const  用来修饰指针本身
+2. 底层const  用来修饰指向的的对象
 
 
 ```cpp
@@ -96,10 +96,103 @@ int* const pn = &n;
 //pm1 pm2 能变（指向别的地址），但所指的地址不能变
 const int* pm1 = &m;
 const int* pm2 = &n;
-//pm和其指向的对象都不能变
+//pm和其指向的对是象都不能变
 const int* const pm3 = &m;
 
 ```
 
 
-> to p59。更新中
+
+
+# 别名
+别名除了`typedef`外，新标准提供另一种定义别名方法
+```cpp
+using dec = double;
+```
+
+# auto
+auto会会忽略顶层const,保留底层
+
+# decltupe类型指示符
+`decltupe`可以根据表达式判断类型，而不需要将表达式计算出来了判断。
+```cpp
+decltype(fun()) n = 0;
+```
+fun()函数不会实际执行，n的类型为fun()函数返回类型。
+
+
+# 字符判断
+`cctype`提供了很多判断字符的函数，可用于判断字母、大小写、空白、数字、控制字符等。
+
+
+# 异常
+```cpp
+try{
+    //code
+}catch(runtime_error err){
+    cout<<err.what();
+}
+```
+# 异常类型
+stdexcept头文件定义。
+
+- exception：常见异常
+- runtiome_error：运行时
+- range_error：结果超出有意义范围
+- overflow_error
+- underflow_error
+- domain_error：参数对应结果值不存在
+- invalid_argument
+- length_error：超出该类型最大长度对象
+- out_of_range
+
+
+# 可变形参的函数，C++11
+## initializer_list
+参数类型一致时使用。
+```cpp
+void func(initializer_list<string> li){
+    for(auto beg = li.begin(); beg != li.end(); ++beg){
+        cout<<*beg;
+    }
+}
+
+void funcc(int error_code,initializer_list<string> li){
+    for(auto beg = li.begin(); beg != li.end(); ++beg){
+        cout<<error_code<<*beg;
+    }
+}
+func({"asd","qwe","zxc"});
+func("asdfag");
+funcc(0,{"asd","qwe","zxc"})
+
+```
+
+## 引用返回左值（不建议）
+写出一般人看不懂的代码
+```cpp
+char &f(string &s,int i){return s[i]}
+string ss = "abcdef";
+f(ss,0)='A';
+cout<<ss;//Abcdef
+```
+
+## 返回一个列表
+```cpp
+vector<int> f(int n){
+    if(n==1){
+        return {1};
+    }else if(n==2){
+        return {2,2};
+    }else if(n>=3){
+        return {3,3,3};
+    }else{
+        return {};
+    }
+}
+```
+
+# assert & NDEBUG
+调试帮助，估计很少用到。
+
+> p227,更新中
